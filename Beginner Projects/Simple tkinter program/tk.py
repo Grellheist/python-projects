@@ -5,7 +5,9 @@ def click():
     info = entry.get()
     if len(info) != 0:
         print(f'You just typed "{info}".')
-    print('You should not have done that.')
+        print('You should not say stuff like that.')
+    else:
+        print('You should not have done that.')
 
 
 def delete():
