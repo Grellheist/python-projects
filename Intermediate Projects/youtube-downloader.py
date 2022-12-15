@@ -6,18 +6,20 @@ tk.set_appearance_mode("dark")
 tk.set_default_color_theme("dark-blue")
 
 # Functions
-
-
 def video_downloader():
+    # Gets the link from user input and feeds into the method
     get_link = entry1.get()
+    # Downloads with audio only (in mp4) 
     yt = YouTube(get_link).streams.filter(only_audio=True).first()
     out_file = yt.download()
     base, ext = os.path.splitext(out_file)
+    # Renames the file to mp3
     new_file = base + ".mp3"
     os.rename(out_file, new_file)
 
 
 def playlist_downloader():
+    # Does the same stuff as before but for each video inside the playlist
     get_link = entry2.get()
     yt = Playlist(get_link)
     for video in yt.videos:
@@ -26,7 +28,7 @@ def playlist_downloader():
         new_file = base + ".mp3"
         os.rename(out_file, new_file)
 
-
+# UI stuff that doesn't need much explaining
 root = tk.CTk()
 root.geometry("500x350")
 
