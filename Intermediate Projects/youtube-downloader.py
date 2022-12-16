@@ -1,3 +1,5 @@
+# Todo: implement ffmpeg converting instead of renaming a mp4 file xD
+
 import customtkinter as tk
 from tkinter import *
 from tkinter import messagebox
