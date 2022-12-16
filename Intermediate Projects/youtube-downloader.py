@@ -1,4 +1,6 @@
 import customtkinter as tk
+from tkinter import *
+from tkinter import messagebox
 from pytube import YouTube, Playlist
 import os
 
@@ -16,6 +18,7 @@ def video_downloader():
     # Renames the file to mp3
     new_file = base + ".mp3"
     os.rename(out_file, new_file)
+    infobox = messagebox.showinfo(title="Success", message="Download finished!")
 
 
 def playlist_downloader():
@@ -27,6 +30,8 @@ def playlist_downloader():
         base, ext = os.path.splitext(out_file)
         new_file = base + ".mp3"
         os.rename(out_file, new_file)
+    infobox = messagebox.showinfo(title="Success", message="Download finished!")
+
 
 # UI stuff that doesn't need much explaining
 root = tk.CTk()
@@ -48,6 +53,5 @@ entry2.pack(pady=12, padx=10)
 
 button2 = tk.CTkButton(master=frame, text="Download playlist as mp3", command=playlist_downloader)
 button2.pack(pady=12, padx=10)
-
 
 root.mainloop()
